@@ -1,0 +1,82 @@
+#token-hud .scene-background-browser-wrap {
+    position: absolute;
+    left: 75px;
+    visibility: hidden;
+    top: 50%;
+    transform: translate(0%, -50%);
+    width: max-content;
+    max-width: 350px;
+    max-height: 350px;
+    text-align: start;
+    grid-template-columns: 100px 100px 100px;
+    overflow-y: auto;
+}
+#token-hud .scene-background-browser-wrap.list {
+    grid-template-columns: unset !important;
+    max-width: 450px;
+}
+
+#token-hud .scene-background-browser-wrap.active {
+    visibility: visible;
+}
+#token-hud .scene-background-browser-button-select {
+    max-width: 300px;
+    overflow-wrap: break-word;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: max-content !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 0 !important;
+    position: relative;
+}
+
+#token-hud .scene-background-browser-button-select .fa-share {
+    position: absolute;
+    left: 0;
+    color: green;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#token-hud .scene-background-browser-button-select .fa-share.active{
+    opacity: 1;
+}
+
+#token-hud #scene-background-browser-side-search{
+    display: none;
+}
+
+#token-hud .scene-background-browser-button-select:hover .scene-background-browser-button-image{
+    opacity: 1!important;
+}
+
+#token-hud .scene-background-browser-button-select.list {
+    max-width: 440px;
+    width: 100% !important;
+    margin: 8px 0px !important;
+    line-height: 40px !important;
+}
+
+#token-hud .scene-background-browser-button-image {
+    width: 100px;
+    height: 100px;
+    margin: 2px;
+    object-fit: contain;
+}
+
+#token-hud .scene-background-browser-button-disabled span, #token-hud .scene-background-browser-button-disabled img, #token-hud .scene-background-browser-button-disabled video {
+    opacity: 1 !important;
+    filter: grayscale(100%);
+}
+#token-hud .scene-background-browser-button-disabled span, #token-hud .scene-background-browser-button-disabled:hover img, #token-hud .scene-background-browser-button-disabled:hover video {
+    /* opacity: 0.7 !important; */
+    color: #CCC;
+}
+
+.token-sheet .scene-background-browser-default {
+    display: none;
+}
+.token-sheet .scene-background-browser-default.active {
+    display: block;
+}

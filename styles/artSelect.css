@@ -1,0 +1,39 @@
+.scene-background-browser-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 1rem;
+  text-align: center;
+}
+
+.scene-background-browser-grid > div {
+  display: grid;
+}
+
+.scene-background-browser-grid > div::before,
+.scene-background-browser-grid > div > .scene-background-browser-box {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.scene-background-browser-grid > div::before {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.scene-background-browser-box {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.scene-background-browser-box:hover {
+  /* border-color: #66afe9; */
+  box-shadow: 0 0 8px rgba(255,0,0, 0.6);
+}
+
+.scene-background-browser-grid > div > p{
+    overflow: scroll;
+    white-space: nowrap;
+}

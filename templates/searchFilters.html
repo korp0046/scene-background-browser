@@ -1,0 +1,72 @@
+<form>
+    <label>Portrait Art Filters</label>
+    <div class="form-group">
+        <label>Include</label>
+        <div class="form-fields">
+            <input type="text" name="portraitFilterInclude" value="{{portraitFilterInclude}}" data-dtype="String" {{#if
+                portraitFilterRegex}}disabled{{/if}}>
+        </div>
+        &nbsp;&nbsp;
+        <label>Exclude</label>
+        <div class="form-fields">
+            <input type="text" name="portraitFilterExclude" value="{{portraitFilterExclude}}" data-dtype="String" {{#if
+                portraitFilterRegex}}disabled{{/if}}>
+        </div>
+        &nbsp;&nbsp;
+        <label>Regex</label>
+        <div class="form-fields">
+            <input type="text" name="portraitFilterRegex" value="{{portraitFilterRegex}}" data-dtype="String">
+        </div>
+        <p class="notes">{{localize "scene-background-browser.portraitArtFilterHint"}}</p>
+    </div>
+
+    <hr />
+
+    <label>Token Art Filters</label>
+    <div class="form-group">
+        <label>Include</label>
+        <div class="form-fields">
+            <input type="text" name="tokenFilterInclude" value="{{tokenFilterInclude}}" data-dtype="String" {{#if
+                tokenFilterRegex}}disabled{{/if}}>
+        </div>
+        &nbsp;&nbsp;
+        <label>Exclude</label>
+        <div class="form-fields">
+            <input type="text" name="tokenFilterExclude" value="{{tokenFilterExclude}}" data-dtype="String" {{#if
+                tokenFilterRegex}}disabled{{/if}}>
+        </div>
+        &nbsp;&nbsp;
+        <label>Regex</label>
+        <div class="form-fields">
+            <input type="text" name="tokenFilterRegex" value="{{tokenFilterRegex}}" data-dtype="String">
+        </div>
+        <p class="notes">{{localize "scene-background-browser.tokenArtFilterHint"}}</p>
+    </div>
+
+    <hr />
+
+    <label>General Art Filters</label>
+    <div class="form-group">
+        <label>Include</label>
+        <div class="form-fields">
+            <input type="text" name="generalFilterInclude" value="{{generalFilterInclude}}" data-dtype="String" {{#if
+                generalFilterRegex}}disabled{{/if}}>
+        </div>
+        &nbsp;&nbsp;
+        <label>Exclude</label>
+        <div class="form-fields">
+            <input type="text" name="generalFilterExclude" value="{{generalFilterExclude}}" data-dtype="String" {{#if
+                generalFilterRegex}}disabled{{/if}}>
+        </div>
+        &nbsp;&nbsp;
+        <label>Regex</label>
+        <div class="form-fields">
+            <input type="text" name="generalFilterRegex" value="{{generalFilterRegex}}" data-dtype="String">
+        </div>
+        <p class="notes">{{localize "scene-background-browser.generalArtFilterHint"}}</p>
+    </div>
+
+    <div class="button-container">
+        <button type="submit">Apply</button>
+    </div>
+</form>

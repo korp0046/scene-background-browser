@@ -1,0 +1,41 @@
+<form>
+    <div class="form-group">
+        <input type="text" id="custom-art-search" name="search" value="{{search}}" />
+        <button type="button" id="custom-art-search-bt">
+            Search
+        </button>
+    </div>
+    {{#if allImages}}
+
+    {{#each allImages as |search index|}}
+    <div>
+        <h2><b>{{search.[0]}}</b></h2>
+    </div>
+    <hr />
+    <div class="scene-background-browser-grid">
+        {{#each search.[1] as |image|}}
+        <div>
+            {{#if image.img}}
+            <img class="scene-background-browser-box" src="{{image.path}}" data-name="{{image.path}}" />
+            {{/if}}
+            {{#if image.vid}}
+            <video class="scene-background-browser-box" src="{{image.path}}" data-name="{{image.path}}" alt="{{image.label}}"
+                autoplay loop></video>
+            {{/if}}
+            {{#unless image.type}}
+            <span class="scene-background-browser-box" data-name="{{image.path}}" alt="{{image.label}}">{{image.path}}</span>
+            {{/unless}}
+            <p>{{image.label}}</p>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+
+    {{else}}
+
+    <div>
+        <p>{{localize "scene-background-browser.TokenConfigPrompt"}}: <b>{{search}}</b></p>
+    </div>
+
+    {{/if}}
+</form>

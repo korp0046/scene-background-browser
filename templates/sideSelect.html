@@ -1,0 +1,25 @@
+<div class="control-icon" data-action="scene-background-browser-side-selector">
+    <img id="scene-background-browser-side-button" src="modules/scene-background-browser/img/token-images.svg" width="36" height="36"
+        title="{{localize scene-background-browser.SelectScreenTitle}}" />
+    <div class="scene-background-browser-wrap {{#unless imageDisplay}}list{{/unless}}">
+        <input id="scene-background-browser-side-search" type="text" />
+        {{#each imagesParsed as |image|}}
+        <button
+            class="scene-background-browser-button-select control-icon {{#unless ../imageDisplay}}list{{/unless}} {{#if image.used}}scene-background-browser-button-disabled active{{/if}}">
+            {{#if ../imageDisplay}}
+            {{#if image.img}}
+            <img class="scene-background-browser-button-image" src="{{image.route}}" alt="{{image.name}}"
+                data-name="{{image.route}}" style="opacity:{{../imageOpacity}};" />
+            {{/if}}
+            {{#if image.vid}}
+            <video class="scene-background-browser-button-image" src="{{image.route}}" alt="{{image.name}}"
+                data-name="{{image.route}}" style="opacity:{{../imageOpacity}};" autoplay loop></video>
+            {{/if}}
+            {{else}}
+            <span data-name="{{image.route}}">{{image.name}}</span>
+            {{/if}}
+            <i class="fas fa-share {{#if image.shared}}active{{/if}}"></i>
+        </button>
+        {{/each}}
+    </div>
+</div>
