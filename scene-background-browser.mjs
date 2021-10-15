@@ -73,25 +73,6 @@ async function registerWorldSettings() {
         onChange: disable => { disableCaching = disable; cacheBackgrounds (); }
     });
 
-    game.settings.register("scene-background-browser", "disableAutomaticPopup", {
-        name: game.i18n.localize("scene-background-browser.DisableAutomaticPopupName"),
-        hint: game.i18n.localize("scene-background-browser.DisableAutomaticPopupHint"),
-        scope: "world",
-        config: true,
-        type: Boolean,
-        default: false,
-    });
-
-    game.settings.register("scene-background-browser", "filterMSRD", {
-        name: game.i18n.localize("scene-background-browser.FilterMSRDName"),
-        hint: game.i18n.localize("scene-background-browser.FilterMSRDHint"),
-        scope: "world",
-        config: true,
-        type: Boolean,
-        default: false,
-        onChange: filter => { filterMSRD = filter; cacheBackgrounds (); }
-    });
-
     game.settings.register("scene-background-browser", "keywordSearch", {
         name: game.i18n.localize("scene-background-browser.KeywordSearchName"),
         hint: game.i18n.localize("scene-background-browser.KeywordSearchHint"),
@@ -112,21 +93,6 @@ async function registerWorldSettings() {
         onChange: keywords => excludedKeywords = parseKeywords(keywords)
     });
 
-    game.settings.register("scene-background-browser", "actorDirectoryKey", {
-        name: game.i18n.localize("scene-background-browser.ActorDirectoryKeyName"),
-        hint: game.i18n.localize("scene-background-browser.ActorDirectoryKeyHint"),
-        scope: "world",
-        config: true,
-        type: String,
-        choices: {
-            "Control": "Ctrl",
-            "Shift": "Shift",
-            "Alt": "Alt"
-        },
-        default: "Control",
-        onChange: key => actorDirKey = key
-    });
-
     game.settings.register("scene-background-browser", "runSearchOnPath", {
         name: game.i18n.localize("scene-background-browser.runSearchOnPathName"),
         hint: game.i18n.localize("scene-background-browser.runSearchOnPathHint"),
@@ -135,22 +101,6 @@ async function registerWorldSettings() {
         type: Boolean,
         default: false,
         onChange: val => runSearchOnPath = val
-    });
-
-    // Legacy filter setting, retained in case some users have used this setting
-    game.settings.register("scene-background-browser", "portraitFilter", {
-        scope: "world",
-        config: false,
-        type: String,
-        default: "",
-    });
-
-    // Legacy filter setting, retained in case some users have used this setting
-    game.settings.register("scene-background-browser", "tokenFilter", {
-        scope: "world",
-        config: false,
-        type: String,
-        default: "",
     });
 
     game.settings.registerMenu("scene-background-browser", "searchFilterMenu", {
@@ -223,7 +173,7 @@ function modSceneConfig(app, html, data) {
     let el = document.createElement("button");
     el.className = 'file-browser';
     el.type = "button";
-    el.title = game.i18n.localize("scene-background-browser.TokenConfigButtonTitle");
+    el.title = game.i18n.localize("scene-background-browser.BackgroundConfigButtonTitle");
     el.innerHTML = '<i class="fas fa-images"/>';
     let imageinput = backgroundEl.getElementsByClassName("image");
     // When a background is selected, fill the form with that artwork path.
@@ -329,7 +279,7 @@ async function walkFindTokens(path, name = "", bucket = "", filters = null, forg
             files = await FilePicker.browse("data", path);
         }
     } catch (err) {
-        console.log(`${game.i18n.localize("token-variant.PathNotFoundError")} ${path}`);
+        console.log(`${game.i18n.localize("scene-background-browser.PathNotFoundError")} ${path}`);
         return;
     }
 

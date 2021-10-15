@@ -3,9 +3,9 @@
     "title": "Scene Background Browser",
     "description": "A simple module that searches for background art in configured directories via a button in the scene creation/edit panel.",
     "version": "1.0.0",
-    "download": "http://192.168.0.10:5000/scene-background-browser.zip",
+    "download": "https://github.com//Aedif/TokenVariants/releases/download/latest/scene-background-browser.zip",
     "url": "http://192.168.0.10:5000",
-    "manifest": "http://192.168.0.10:5000/module.json",
+    "manifest": "https://github.com/korp0046/scene-background-browser/releases/latest/download/module.json",
     "author": "korp0046",
     "authors": [
         {
