@@ -6,9 +6,6 @@ import { getFileName, getFileNameWithExt, simplifyTokenName, simplifyPath, parse
 // Default path where the script will look for background art
 const DEFAULT_TOKEN_PATHS = ["modules/caeora-maps-tokens-assets/assets/maps/"];
 
-// Controls whether found art should be filtered by 5e monster srd
-let filterMSRD = true;
-
 // Controls whether a keyword search is to be performed in addition to full-name search
 let keywordSearch = false;
 let excludedKeywords = [];
@@ -24,9 +21,6 @@ let foundBackgrounds = new Set();
 
 // Tracks if module has been initialized
 let initialized = false;
-
-// Keyboard key controlling the pop-up when dragging in a background from the Actor Directory
-let actorDirKey = "";
 
 let debug = false;
 
@@ -117,12 +111,6 @@ async function registerWorldSettings() {
         config: false,
         type: Object,
         default: {
-            portraitFilterInclude: game.settings.get("scene-background-browser", "portraitFilter"),
-            portraitFilterExclude: "",
-            portraitFilterRegex: "",
-            tokenFilterInclude: game.settings.get("scene-background-browser", "tokenFilter"),
-            tokenFilterExclude: "",
-            tokenFilterRegex: "",
             generalFilterInclude: "",
             generalFilterExclude: "",
             generalFilterRegex: "",
@@ -136,10 +124,7 @@ async function registerWorldSettings() {
         default: [],
     });
 
-    filterMSRD = game.settings.get("scene-background-browser", "filterMSRD");
     disableCaching = game.settings.get("scene-background-browser", "disableCaching");
-    keywordSearch = game.settings.get("scene-background-browser", "keywordSearch");
-    actorDirKey = game.settings.get("scene-background-browser", "actorDirectoryKey");
     debug = game.settings.get("scene-background-browser", "debug");
     runSearchOnPath = game.settings.get("scene-background-browser", "runSearchOnPath");
 }
